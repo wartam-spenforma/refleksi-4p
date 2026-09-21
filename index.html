@@ -1,357 +1,185 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refleksi Pembelajaran 4P</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --accent: #f43f5e;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(244, 63, 94, 0.1) 0px, transparent 50%);
-            min-height: 100vh;
-            color: #1e293b;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 2rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
-        }
-
-        .input-group {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .custom-input {
-            width: 100%;
-            padding: 0.875rem 1.25rem;
-            background-color: rgba(248, 250, 252, 0.8);
-            border: 2px solid #e2e8f0;
-            border-radius: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 500;
-        }
-
-        .custom-input:focus {
-            background-color: #ffffff;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
-            outline: none;
-            transform: translateY(-1px);
-        }
-
-        .step-card {
-            background: #ffffff;
-            padding: 1.5rem;
-            border-radius: 1.5rem;
-            border: 1px solid #f1f5f9;
-            transition: all 0.3s ease;
-        }
-
-        .step-card:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-            transform: translateY(-4px);
-            border-color: rgba(99, 102, 241, 0.2);
-        }
-
-        .icon-box {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .btn-primary:hover:not(:disabled) {
-            transform: scale(1.02);
-            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-primary:active:not(:disabled) {
-            transform: scale(0.98);
-        }
-
-        .spinner {
-            border: 2.5px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 2.5px solid #fff;
-            width: 1.25rem;
-            height: 1.25rem;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 640px) {
-            .glass-card {
-                border-radius: 1.5rem;
-                padding: 1.5rem !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refleksi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#19323b; --muted:#5d747b; --card:#fff; --accent:#0f7b6c; --accent2:#e0733b; --line:#d8e2e1; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; padding:28px 16px; color:var(--ink); font-family:"Nunito Sans",Arial,sans-serif; background:linear-gradient(135deg,#d8fff5,#fff0df,#e5e9ff); background-size:250% 250%; animation:bg 14s ease infinite; }
+    .card { max-width:760px; margin:auto; padding:32px; background:rgba(255,255,255,.94); border:1px solid var(--line); border-radius:22px; box-shadow:0 18px 45px rgba(25,50,59,.14); }
+    .eyebrow { color:var(--accent); font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:13px; }
+    h1 { margin:8px 0 6px; font-size:clamp(30px,6vw,48px); background:linear-gradient(90deg,var(--accent),var(--accent2),#635bdb); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .intro { margin:0 0 24px; color:var(--muted); line-height:1.6; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    label { display:block; margin:0 0 7px; font-weight:700; }
+    input, textarea, select { width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:12px; color:var(--ink); background:#fbfdfd; font:inherit; }
+    select { appearance:none; -webkit-appearance:none; padding-right:42px; cursor:pointer; background-color:#fbfdfd; background-image:linear-gradient(45deg,transparent 50%,var(--accent) 50%),linear-gradient(135deg,var(--accent) 50%,transparent 50%); background-position:calc(100% - 19px) 50%,calc(100% - 13px) 50%; background-size:6px 6px,6px 6px; background-repeat:no-repeat; transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease; }
+    select:hover { border-color:var(--accent); background-color:#f3fbf9; }
+    textarea { min-height:120px; resize:vertical; line-height:1.5; }
+    input:focus, textarea:focus, select:focus { outline:3px solid rgba(15,123,108,.16); border-color:var(--accent); box-shadow:0 0 0 1px var(--accent); }
+    select:disabled { opacity:.65; cursor:not-allowed; background-color:#eef3f2; }
+    .field { margin-top:18px; }
+    .prompt { display:block; margin:0 0 8px; color:var(--muted); font-size:14px; font-weight:400; }
+    .number { color:var(--accent2); font-weight:800; margin-right:7px; }
+    button { width:100%; margin-top:24px; padding:14px 18px; border:0; border-radius:12px; color:#fff; background:linear-gradient(100deg,var(--accent),#159e8b); font:inherit; font-weight:700; cursor:pointer; }
+    button:disabled { opacity:.6; cursor:wait; }
+    #status { min-height:24px; margin-top:16px; text-align:center; font-weight:700; }
+    .success { color:var(--accent); } .error { color:#bd3f3f; }
+    @keyframes bg { 0%,100%{background-position:0 50%} 50%{background-position:100% 50%} }
+    @media (max-width:600px) { .card{padding:24px 18px} .grid{grid-template-columns:1fr} }
+  </style>
 </head>
-<body class="py-10 px-4 md:py-16">
+<body>
+  <main class="card">
+    <h1>Refleksi</h1>
+    <p class="intro">Refleksi materi Paradigma Pembelajaran Digital dan Pemanfaatan Perangkat. Isi sesuai pengalaman Anda — tidak ada jawaban salah di sini.</p>
 
-    <div class="max-w-5xl mx-auto">
-        <!-- Header Section -->
-        <div class="text-center mb-12 space-y-4">
-            <span class="px-4 py-1.5 bg-indigo-100 text-indigo-600 rounded-full text-sm font-bold tracking-wider uppercase">Jurnal Harian</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Refleksi Pembelajaran</h1>
-            <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
-                Tuliskan jejak belajarmu hari ini sebagai bahan evaluasi untuk hari esok yang lebih baik.
-            </p>
+    <form id="reflectionForm">
+      <div class="grid">
+        <div>
+          <label for="nama">Nama</label>
+          <select id="nama" name="nama" required disabled>
+            <option value="">Memuat daftar nama...</option>
+          </select>
         </div>
+        <div>
+          <label for="sekolah">Sekolah</label>
+          <select id="sekolah" name="sekolah" required disabled>
+            <option value="">Pilih nama terlebih dahulu</option>
+          </select>
+        </div>
+      </div>
 
-        <form id="reflectionForm" class="glass-card p-8 md:p-12">
-            <!-- Identity Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                <div class="space-y-2">
-                    <label class="text-sm font-bold text-slate-700 ml-1 uppercase tracking-wide">Kelas</label>
-                    <div class="relative group">
-                        <select name="kelas" id="kelasSelect" required 
-                            class="custom-input appearance-none cursor-pointer">
-                            <option value="" disabled selected>Memuat kelas...</option>
-                        </select>
-                        <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs group-focus-within:text-indigo-500 transition-colors"></i>
-                    </div>
-                </div>
+      <div class="field">
+        <label for="fact"><span class="number">01 / fact</span>Fact — Fakta</label>
+        <span class="prompt">Apa saja yang Anda pelajari atau alami selama pembahasan materi ini?</span>
+        <textarea id="fact" name="fact" required></textarea>
+      </div>
+      <div class="field">
+        <label for="feeling"><span class="number">02 / feeling</span>Feeling — Perasaan</label>
+        <span class="prompt">Bagaimana perasaan Anda saat mempelajari paradigma pembelajaran digital dan penggunaan perangkat?</span>
+        <textarea id="feeling" name="feeling" required></textarea>
+      </div>
+      <div class="field">
+        <label for="finding"><span class="number">03 / finding</span>Finding — Temuan</label>
+        <span class="prompt">Hal baru atau pemahaman penting apa yang Anda temukan dari materi ini?</span>
+        <textarea id="finding" name="finding" required></textarea>
+      </div>
+      <div class="field">
+        <label for="future"><span class="number">04 / future</span>Future — Rencana</label>
+        <span class="prompt">Apa yang akan Anda lakukan setelah ini terkait pemanfaatan perangkat digital untuk belajar?</span>
+        <textarea id="future" name="future" required></textarea>
+      </div>
 
-                <div class="space-y-2">
-                    <label class="text-sm font-bold text-slate-700 ml-1 uppercase tracking-wide">Nama Murid</label>
-                    <div class="relative group">
-                        <select name="nama" id="namaSelect" required disabled
-                            class="custom-input appearance-none cursor-pointer disabled:opacity-60">
-                            <option value="" disabled selected>Pilih kelas dahulu</option>
-                        </select>
-                        <i class="fas fa-user absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs group-focus-within:text-indigo-500 transition-colors"></i>
-                    </div>
-                </div>
+      <button id="submitButton" type="submit">Kirim refleksi</button>
+      <div id="status" role="status" aria-live="polite"></div>
+    </form>
+  </main>
 
-                <div class="space-y-2">
-                    <label class="text-sm font-bold text-slate-700 ml-1 uppercase tracking-wide">Tanggal Refleksi</label>
-                    <input type="date" name="tanggal" id="todayDate" required 
-                        class="custom-input">
-                </div>
-            </div>
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzCnIK51vV3LDiPIq4C7MP2aNBu38C0GPSnghbsuy7Cxxcg_rwmelq0GiO7xO_NSjrYdw/exec';
+    const PARTICIPANT_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR5Hy1fDGHgqij7HGveCAy5QOOecMV7Mdm2_95PV6RDyOBJlvZWsmQy3yKYp5D6pRqjKmzyxvoct1pj/pub?gid=455525492&single=true&output=csv';
+    const form = document.getElementById('reflectionForm');
+    const button = document.getElementById('submitButton');
+    const status = document.getElementById('status');
+    const namaSelect = document.getElementById('nama');
+    const sekolahSelect = document.getElementById('sekolah');
+    let participants = [];
 
-            <div class="flex items-center gap-4 mb-8">
-                <div class="h-[1px] bg-slate-200 flex-grow"></div>
-                <span class="text-slate-400 font-bold text-xs uppercase tracking-widest">Model Refleksi 4P</span>
-                <div class="h-[1px] bg-slate-200 flex-grow"></div>
-            </div>
-
-            <!-- 4P Steps Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                <!-- Step 1 -->
-                <div class="step-card group">
-                    <div class="icon-box bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">1. Peristiwa (Facts)</h3>
-                    <p class="text-sm text-slate-500 mb-4 leading-relaxed">
-                        Apa hal menarik atau kesulitan yang kamu alami saat belajar hari ini?
-                    </p>
-                    <textarea name="peristiwa" required rows="4" placeholder="Ceritakan momen belajarmu..."
-                        class="custom-input resize-none bg-slate-50 border-transparent"></textarea>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="step-card group">
-                    <div class="icon-box bg-rose-50 text-rose-600 group-hover:bg-rose-600 group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-smile-beam"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">2. Perasaan (Feelings)</h3>
-                    <p class="text-sm text-slate-500 mb-4 leading-relaxed">
-                        Bagaimana perasaanmu saat mengikuti kegiatan belajar tadi?
-                    </p>
-                    <textarea name="perasaan" required rows="4" placeholder="Aku merasa senang karena..."
-                        class="custom-input resize-none bg-slate-50 border-transparent"></textarea>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="step-card group">
-                    <div class="icon-box bg-amber-50 text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">3. Pembelajaran (Findings)</h3>
-                    <p class="text-sm text-slate-500 mb-4 leading-relaxed">
-                        Apa kesimpulan atau ilmu baru yang kamu dapatkan hari ini?
-                    </p>
-                    <textarea name="pembelajaran" required rows="4" placeholder="Hari ini aku memahami bahwa..."
-                        class="custom-input resize-none bg-slate-50 border-transparent"></textarea>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="step-card group">
-                    <div class="icon-box bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-forward-step"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">4. Penerapan (Future)</h3>
-                    <p class="text-sm text-slate-500 mb-4 leading-relaxed">
-                        Apa rencana perbaikan yang akan kamu lakukan kedepannya?
-                    </p>
-                    <textarea name="penerapan" required rows="4" placeholder="Ke depan, aku akan mencoba untuk..."
-                        class="custom-input resize-none bg-slate-50 border-transparent"></textarea>
-                </div>
-            </div>
-
-            <!-- Submit Button -->
-            <div class="flex flex-col items-center">
-                <button type="submit" id="submitBtn" 
-                    class="btn-primary w-full md:w-auto md:px-12 py-4 rounded-2xl text-white font-bold text-lg flex items-center justify-center gap-3">
-                    <span>Kirim Refleksi Sekarang</span>
-                    <i class="fas fa-paper-plane text-sm"></i>
-                </button>
-                <p class="mt-4 text-xs text-slate-400 font-medium">Data akan tersimpan secara otomatis ke Google Sheets</p>
-            </div>
-        </form>
-
-        <div id="statusMessage" class="hidden mt-8 transform transition-all duration-500"></div>
-    </div>
-
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbz-vD2Ie4496_jaeUBjY8mAOiNdnvuAeVzW4S1g286J1TR9W5AfgBFW9lvvrMYYfh8yGQ/exec';
-        const namesSourceURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTrpYld7QfAAGMaOvoP-NG_UEDa-1ScTDEm_V4rjc5gTdcAffPOioV6pmfhoU3PMv5rIzHpdSUSRcqy/pub?gid=455965563&single=true&output=csv';
-
-        const form = document.getElementById('reflectionForm');
-        const btn = document.getElementById('submitBtn');
-        const statusMsg = document.getElementById('statusMessage');
-        const kelasSelect = document.getElementById('kelasSelect');
-        const namaSelect = document.getElementById('namaSelect');
-
-        let rawData = [];
-
-        async function fetchData() {
-            try {
-                const response = await fetch(namesSourceURL);
-                const text = await response.text();
-                const rows = text.split(/\r?\n/).map(row => row.split(','));
-                
-                rawData = rows.slice(1)
-                    .filter(cols => cols.length >= 4)
-                    .map(cols => ({
-                        nama: cols[2].replace(/^"|"$/g, '').trim(),
-                        kelas: cols[3].replace(/^"|"$/g, '').trim()
-                    }))
-                    .filter(item => item.nama !== '' && item.kelas !== '');
-
-                const uniqueClasses = [...new Set(rawData.map(item => item.kelas))].sort();
-                kelasSelect.innerHTML = '<option value="" disabled selected>-- Pilih Kelas --</option>';
-                uniqueClasses.forEach(kls => {
-                    const option = document.createElement('option');
-                    option.value = kls;
-                    option.textContent = kls;
-                    kelasSelect.appendChild(option);
-                });
-            } catch (error) {
-                console.error('Fetch error:', error);
-                kelasSelect.innerHTML = '<option value="" disabled selected>Gagal memuat</option>';
-            }
+    function parseCSV(text) {
+      const rows = [];
+      let row = [], cell = '', quoted = false;
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (char === '"') {
+          if (quoted && text[i + 1] === '"') { cell += '"'; i++; }
+          else { quoted = !quoted; }
+        } else if (char === ',' && !quoted) {
+          row.push(cell.trim()); cell = '';
+        } else if ((char === '\n' || char === '\r') && !quoted) {
+          if (char === '\r' && text[i + 1] === '\n') i++;
+          row.push(cell.trim()); cell = '';
+          if (row.some(value => value !== '')) rows.push(row);
+          row = [];
+        } else {
+          cell += char;
         }
+      }
+      if (cell || row.length) { row.push(cell.trim()); rows.push(row); }
+      return rows;
+    }
 
-        kelasSelect.addEventListener('change', function() {
-            const selectedClass = this.value;
-            const filteredNames = rawData
-                .filter(item => item.kelas === selectedClass)
-                .sort((a, b) => a.nama.localeCompare(b.nama));
-            namaSelect.disabled = false;
-            namaSelect.innerHTML = '<option value="" disabled selected>-- Pilih Nama Kamu --</option>';
-            filteredNames.forEach(item => {
-                const option = document.createElement('option');
-                option.value = item.nama;
-                option.textContent = item.nama;
-                namaSelect.appendChild(option);
-            });
+    function setOptions(select, placeholder, values) {
+      select.innerHTML = '';
+      const first = document.createElement('option');
+      first.value = '';
+      first.textContent = placeholder;
+      select.appendChild(first);
+      values.forEach(value => {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        select.appendChild(option);
+      });
+    }
+
+    async function loadParticipants() {
+      try {
+        const response = await fetch(PARTICIPANT_CSV_URL);
+        if (!response.ok) throw new Error('Data peserta tidak dapat dimuat.');
+        const rows = parseCSV(await response.text()).slice(1);
+        participants = rows
+          .filter(row => row[0] && row[1])
+          .map(row => ({ nama: row[0], sekolah: row[1] }));
+        const names = [...new Set(participants.map(item => item.nama))].sort((a, b) => a.localeCompare(b, 'id'));
+        setOptions(namaSelect, 'Pilih Nama', names);
+        namaSelect.disabled = names.length === 0;
+        status.textContent = names.length ? '' : 'Daftar nama kosong.';
+      } catch (error) {
+        namaSelect.innerHTML = '<option value="">Gagal memuat nama</option>';
+        status.className = 'error';
+        status.textContent = 'Daftar nama gagal dimuat. Muat ulang halaman.';
+      }
+    }
+
+    namaSelect.addEventListener('change', () => {
+      const selected = participants.find(item => item.nama === namaSelect.value);
+      const schools = selected ? [selected.sekolah] : [];
+      setOptions(sekolahSelect, selected ? 'Pilih Sekolah' : 'Pilih nama terlebih dahulu', schools);
+      sekolahSelect.disabled = !selected;
+    });
+
+    loadParticipants();
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      button.disabled = true;
+      status.className = '';
+      status.textContent = 'Mengirim refleksi...';
+
+      const body = new URLSearchParams(new FormData(form));
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body
         });
-
-        window.onload = () => {
-            document.getElementById('todayDate').valueAsDate = new Date();
-            fetchData();
-        };
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            btn.disabled = true;
-            btn.innerHTML = '<div class="spinner"></div> <span>Memproses...</span>';
-            statusMsg.classList.add('hidden');
-
-            const formData = new FormData(form);
-
-            fetch(scriptURL, { 
-                method: 'POST', 
-                body: formData
-            })
-            .then(response => response.json())
-            .then(res => {
-                btn.disabled = false;
-                btn.innerHTML = '<span>Kirim Refleksi Sekarang</span> <i class="fas fa-paper-plane text-sm"></i>';
-                
-                statusMsg.innerHTML = `
-                    <div class="p-6 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-check text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-emerald-900 font-bold text-lg">Berhasil Terkirim!</h4>
-                            <p class="text-emerald-700">Refleksi kamu telah tersimpan. Tetap semangat belajarnya ya!</p>
-                        </div>
-                    </div>
-                `;
-                statusMsg.classList.remove('hidden');
-                form.reset();
-                namaSelect.disabled = true;
-                namaSelect.innerHTML = '<option value="" disabled selected>Pilih kelas dahulu</option>';
-                document.getElementById('todayDate').valueAsDate = new Date();
-                statusMsg.scrollIntoView({ behavior: 'smooth' });
-            })
-            .catch((error) => {
-                btn.disabled = false;
-                btn.innerHTML = '<span>Kirim Refleksi Sekarang</span>';
-                statusMsg.innerHTML = `
-                    <div class="p-6 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-indigo-500 text-white flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-info text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-indigo-900 font-bold text-lg">Proses Selesai</h4>
-                            <p class="text-indigo-700 font-medium">Data sedang diverifikasi oleh sistem. Silakan periksa Spreadsheet kamu.</p>
-                        </div>
-                    </div>
-                `;
-                statusMsg.classList.remove('hidden');
-                form.reset();
-            });
-        });
-    </script>
+        status.className = 'success';
+        status.textContent = '✓ Refleksi terkirim. Terima kasih, jawabanmu sudah tersimpan.';
+        form.reset();
+      } catch (error) {
+        status.className = 'error';
+        status.textContent = 'Refleksi gagal dikirim. Silakan coba lagi.';
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
