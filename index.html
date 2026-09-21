@@ -130,7 +130,9 @@
 
     async function loadParticipants() {
       try {
-        const response = await fetch(PARTICIPANT_CSV_URL);
+        const response = await fetch(PARTICIPANT_CSV_URL + '&cb=' + Date.now(), {
+          cache: 'no-store'
+        });
         if (!response.ok) throw new Error('Data peserta tidak dapat dimuat.');
         const rows = parseCSV(await response.text()).slice(1);
         participants = rows
